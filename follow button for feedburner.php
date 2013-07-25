@@ -2,10 +2,10 @@
 /*
 Plugin Name: Follow Button for Mailchimp
 Plugin URI: http://mywp.in
-Description: Adds a floating follow button to FeedBurner using WordPRess sites. The same follow button which appears on WP.COM blogs. Use Follow Plugin if your don't use FeedBurner
+Description: Adds a floating follow button to FeedBurner using Wordpress sites. The same follow button which appears on WP.COM blogs. Use Follow Plugin if your don't use FeedBurner
 Version: 1.1
 Author: TheAdityaJain & Jay Gidwitz
-Author URI: http://adityajain.name
+Author URI: http://jaygidwitz.com/web-design/follow-button/
 Licence: GNU GPL Version 3
 */
 include( plugin_dir_path( __FILE__ ) . 'index.php');
@@ -57,7 +57,7 @@ function wpse33008() {
       background-attachment: scroll;
       background-clip: border-box;
       background-color: transparent;
-      background-image: url(<?php bloginfo('url' ); ?>/wp-content/plugins/follow-button-for-jetpack/plus.png);
+      background-image: url(<?php bloginfo('url' ); ?>/wp-content/plugins/follow-button-for-mailchimp/arrow.png);
       background-origin: padding-box;
       background-position: 2px 3px;
       background-repeat: no-repeat;
@@ -68,6 +68,7 @@ function wpse33008() {
   #bit a:hover span, #bit a.bsub.open span {
       /*background-position: 0 -117px;*/
       color: #FFFFFF !important;
+    	background-image: url(<?php bloginfo('url' ); ?>/wp-content/plugins/follow-button-for-mailchimp/smiley.png);
   }
   
   #bit a.bsub.open {
@@ -237,7 +238,7 @@ function wpse33008() {
     <h3><label for="loggedout-follow-field">Follow <?php bloginfo('name' ); ?></label></h3>
   <p>Get every new post delivered to your Inbox</p> 
     <p>Join other followers</p>
-    <form style="padding:3px;text-align:center;" action="<?php echo get_option('followfbpo_quote'); ?>" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" method="post" target="_blank" novalidate><p><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" style="width:183px" name="email" value="Enter email address" onfocus='this.value=(this.value=="Enter email address") ? "" : this.value;' onblur='this.value=(this.value=="") ? "Enter email address" : this.value;'/></p><input type="hidden" value="<?php echo get_option('followfbpo_quote'); ?>" name="uri"/><input type="hidden" name="loc" value="en_US"/><input type="submit" value="Subscribe" id="mc-embedded-subscribe" /></form>        </div>
+    <form style="padding:3px;text-align:center;" action="<?php echo get_option('followbmc_url'); ?>" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" method="post" target="_blank" novalidate><p><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" style="width:183px" name="email" value="Enter email address" onfocus='this.value=(this.value=="Enter email address") ? "" : this.value;' onblur='this.value=(this.value=="") ? "Enter email address" : this.value;'/></p><input type="hidden" value="<?php echo get_option('followbmc_url'); ?>" name="uri"/><input type="hidden" name="loc" value="en_US"/><input type="submit" value="Subscribe" id="mc-embedded-subscribe" /></form>        </div>
 </div>
 <?php
 }

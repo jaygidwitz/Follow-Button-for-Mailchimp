@@ -1,13 +1,13 @@
 <?php
 
-if(!class_exists('FollowFBPluginOptions')) :
+if(!class_exists('FollowBMCPluginOptions')) :
 
 // DEFINE PLUGIN ID
-define('FOLLOWFBPLUGINOPTIONS_ID', 'followfb-plugin-options');
+define('FOLLOWBMCPLUGINOPTIONS_ID', 'followbmc-plugin-options');
 // DEFINE PLUGIN NICK
-define('FOLLOWFBPLUGINOPTIONS_NICK', 'Follow Button for Mailchimp');
+define('FOLLOWBMCPLUGINOPTIONS_NICK', 'Follow Button for Mailchimp');
 
-    class FollowFBPluginOptions
+    class FollowBMCPluginOptions
     {
 		/** function/method
 		* Usage: return absolute file path
@@ -25,7 +25,7 @@ define('FOLLOWFBPLUGINOPTIONS_NICK', 'Follow Button for Mailchimp');
 		*/
 		public static function register()
 		{
-			register_setting(FOLLOWFBPLUGINOPTIONS_ID.'_options', 'followfbpo_quote');
+			register_setting(FOLLOWBMCPLUGINOPTIONS_ID.'_options', 'followbmc_url');
 		}
 		/** function/method
 		* Usage: hooking (registering) the plugin menu
@@ -35,7 +35,7 @@ define('FOLLOWFBPLUGINOPTIONS_NICK', 'Follow Button for Mailchimp');
 		public static function menu()
 		{
 			// Create menu tab
-			add_options_page(FOLLOWFBPLUGINOPTIONS_NICK.' Plugin Options', FOLLOWFBPLUGINOPTIONS_NICK, 'manage_options', FOLLOWFBPLUGINOPTIONS_ID.'_options', array('FollowFBPluginOptions', 'options_page'));
+			add_options_page(FOLLOWBMCPLUGINOPTIONS_NICK.' Plugin Options', FOLLOWBMCPLUGINOPTIONS_NICK, 'manage_options', FOLLOWBMCPLUGINOPTIONS_ID.'_options', array('FollowBMCPluginOptions', 'options_page'));
 		}
 		/** function/method
 		* Usage: show options/settings form page
@@ -49,7 +49,7 @@ define('FOLLOWFBPLUGINOPTIONS_NICK', 'Follow Button for Mailchimp');
 				wp_die( __('You do not have sufficient permissions to access this page.') );
 			}
 			
-			$plugin_id = FOLLOWFBPLUGINOPTIONS_ID;
+			$plugin_id = FOLLOWBMCPLUGINOPTIONS_ID;
 			// display options page
 			include(self::file_path('options.php'));
 		}
@@ -63,8 +63,8 @@ define('FOLLOWFBPLUGINOPTIONS_NICK', 'Follow Button for Mailchimp');
 	
 	if ( is_admin() )
 	{
-		add_action('admin_init', array('FollowFBPluginOptions', 'register'));
-		add_action('admin_menu', array('FollowFBPluginOptions', 'menu'));
+		add_action('admin_init', array('FollowBMCPluginOptions', 'register'));
+		add_action('admin_menu', array('FollowBMCPluginOptions', 'menu'));
 	}
 endif;
 
